@@ -1,43 +1,26 @@
 "use client";
 import { useState } from "react";
 import AnimeChainLogo from "./components/AnimeChainLogo";
+import { 
+  TopLeftStarsDesktop, 
+  TopLeftStarsMobile, 
+  BottomRightStarsDesktop, 
+  BottomRightStarsMobile 
+} from "./components/StarPatterns";
 
 function BackgroundStars() {
   return (
     <div className="absolute inset-0 overflow-hidden pointer-events-none">
-      {/* Left side stars - only visible on larger screens */}
-      <div className="absolute left-4 top-8 md:left-8 md:top-12">
-        <svg width="80" height="80" viewBox="0 0 80 80" fill="none">
-          <path
-            d="M40 2C40 2 42.5 20 48.5 26C54.5 32 72 34 72 34C72 34 54.5 36 48.5 42C42.5 48 40 66 40 66C40 66 37.5 48 31.5 42C25.5 36 8 34 8 34C8 34 25.5 32 31.5 26C37.5 20 40 2 40 2Z"
-            fill="white"
-          />
-        </svg>
+      {/* デスクトップ用星パターン */}
+      <div className="hidden md:block">
+        <TopLeftStarsDesktop />
+        <BottomRightStarsDesktop />
       </div>
-      <div className="absolute left-2 top-20 md:left-4 md:top-28">
-        <svg width="12" height="12" viewBox="0 0 12 12" fill="none">
-          <circle cx="6" cy="6" r="6" fill="white" />
-        </svg>
-      </div>
-
-      {/* Right side stars */}
-      <div className="absolute right-4 bottom-16 md:right-8 md:bottom-20">
-        <svg width="60" height="60" viewBox="0 0 60 60" fill="none">
-          <path
-            d="M30 2C30 2 32 15 36.5 19.5C41 24 54 26 54 26C54 26 41 28 36.5 32.5C32 37 30 50 30 50C30 50 28 37 23.5 32.5C19 28 6 26 6 26C6 26 19 24 23.5 19.5C28 15 30 2 30 2Z"
-            fill="white"
-          />
-        </svg>
-      </div>
-      <div className="absolute right-8 bottom-8 md:right-12 md:bottom-12">
-        <svg width="16" height="16" viewBox="0 0 16 16" fill="none">
-          <circle cx="8" cy="8" r="8" fill="white" />
-        </svg>
-      </div>
-      <div className="absolute right-2 bottom-4 md:right-4 md:bottom-6">
-        <svg width="8" height="8" viewBox="0 0 8 8" fill="none">
-          <circle cx="4" cy="4" r="4" fill="white" />
-        </svg>
+      
+      {/* モバイル用星パターン */}
+      <div className="block md:hidden">
+        <TopLeftStarsMobile />
+        <BottomRightStarsMobile />
       </div>
     </div>
   );
