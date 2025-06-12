@@ -5,33 +5,40 @@ import AnimeChainLogo from "./components/AnimeChainLogo";
 function BackgroundStars() {
   return (
     <div className="absolute inset-0 overflow-hidden pointer-events-none">
-      <svg
-        className="absolute inset-0 w-full h-full"
-        viewBox="0 0 765 400"
-        fill="none"
-        xmlns="http://www.w3.org/2000/svg"
-        preserveAspectRatio="xMidYMid slice"
-      >
-        {/* Top left small star */}
-        <path
-          d="M78 3C78 3 81.0243 22.8462 89.6139 31.1015C98.2035 39.3568 121 41.5 121 41.5C121 41.5 98.2035 43.6432 89.6139 51.8985C81.0243 60.1538 78 80 78 80C78 80 74.9757 60.1538 66.3861 51.8985C57.7965 43.6432 35 41.5 35 41.5C35 41.5 57.7965 39.3568 66.3861 31.1015C74.9757 22.8462 78 3 78 3Z"
-          fill="white"
-          opacity="0.8"
-        />
-        {/* Small circles - positioned to avoid text overlap */}
-        <circle cx="24.5" cy="90.5" r="6" fill="white" opacity="0.6" />
-        <circle cx="4" cy="4" r="3" fill="white" opacity="0.7" />
-        <circle cx="151" cy="17" r="4" fill="white" opacity="0.6" />
-        {/* Bottom right stars */}
-        <circle cx="690" cy="305" r="6" fill="white" opacity="0.8" />
-        <circle cx="698" cy="243" r="3" fill="white" opacity="0.6" />
-        <circle cx="603" cy="326" r="8" fill="white" opacity="0.7" />
-        <path
-          d="M635 311C635 311 632.749 296.051 626.357 289.833C619.965 283.614 603 282 603 282C603 282 619.965 280.386 626.357 274.167C632.749 267.949 635 253 635 253C635 253 637.251 267.949 643.643 274.167C650.035 280.386 667 282 667 282C667 282 650.035 283.614 643.643 289.833C637.251 296.051 635 311 635 311Z"
-          fill="white"
-          opacity="0.9"
-        />
-      </svg>
+      {/* Left side stars - only visible on larger screens */}
+      <div className="absolute left-4 top-8 md:left-8 md:top-12">
+        <svg width="80" height="80" viewBox="0 0 80 80" fill="none">
+          <path
+            d="M40 2C40 2 42.5 20 48.5 26C54.5 32 72 34 72 34C72 34 54.5 36 48.5 42C42.5 48 40 66 40 66C40 66 37.5 48 31.5 42C25.5 36 8 34 8 34C8 34 25.5 32 31.5 26C37.5 20 40 2 40 2Z"
+            fill="white"
+          />
+        </svg>
+      </div>
+      <div className="absolute left-2 top-20 md:left-4 md:top-28">
+        <svg width="12" height="12" viewBox="0 0 12 12" fill="none">
+          <circle cx="6" cy="6" r="6" fill="white" />
+        </svg>
+      </div>
+
+      {/* Right side stars */}
+      <div className="absolute right-4 bottom-16 md:right-8 md:bottom-20">
+        <svg width="60" height="60" viewBox="0 0 60 60" fill="none">
+          <path
+            d="M30 2C30 2 32 15 36.5 19.5C41 24 54 26 54 26C54 26 41 28 36.5 32.5C32 37 30 50 30 50C30 50 28 37 23.5 32.5C19 28 6 26 6 26C6 26 19 24 23.5 19.5C28 15 30 2 30 2Z"
+            fill="white"
+          />
+        </svg>
+      </div>
+      <div className="absolute right-8 bottom-8 md:right-12 md:bottom-12">
+        <svg width="16" height="16" viewBox="0 0 16 16" fill="none">
+          <circle cx="8" cy="8" r="8" fill="white" />
+        </svg>
+      </div>
+      <div className="absolute right-2 bottom-4 md:right-4 md:bottom-6">
+        <svg width="8" height="8" viewBox="0 0 8 8" fill="none">
+          <circle cx="4" cy="4" r="4" fill="white" />
+        </svg>
+      </div>
     </div>
   );
 }
@@ -143,9 +150,9 @@ export default function Home() {
             </div>
             
             {/* Message */}
-            <div className="text-white font-bold leading-relaxed px-2 z-10 relative">
-              <p className="text-base sm:text-lg lg:text-xl mb-2">{currentContent.heroMessage.line1}</p>
-              <p className={`text-base sm:text-lg lg:text-xl ${currentContent.heroMessage.line3 ? "mb-2" : ""}`}>{currentContent.heroMessage.line2}</p>
+            <div className={`text-white font-bold px-2 z-10 relative ${language === 'en' ? 'leading-snug' : 'leading-relaxed'}`}>
+              <p className={`text-base sm:text-lg lg:text-xl ${language === 'en' ? 'mb-1' : 'mb-2'}`}>{currentContent.heroMessage.line1}</p>
+              <p className={`text-base sm:text-lg lg:text-xl ${currentContent.heroMessage.line3 ? (language === 'en' ? 'mb-1' : 'mb-2') : ""}`}>{currentContent.heroMessage.line2}</p>
               {currentContent.heroMessage.line3 && <p className="text-base sm:text-lg lg:text-xl">{currentContent.heroMessage.line3}</p>}
             </div>
           </div>
