@@ -3,7 +3,7 @@ import Image from 'next/image';
 // 左上 - デスクトップ用
 export function TopLeftStarsDesktop() {
   return (
-    <div className="absolute left-1/2 top-12 -translate-x-[400px]">
+    <div className="absolute left-1/2 top-6 -translate-x-[400px]">
       <Image
         src="/desktop/top-left.png"
         alt="Stars decoration"
@@ -33,7 +33,7 @@ export function TopLeftStarsMobile() {
 // 右下 - デスクトップ用
 export function BottomRightStarsDesktop() {
   return (
-    <div className="absolute left-1/2 bottom-16 translate-x-[300px]">
+    <div className="absolute left-1/2 bottom-6 translate-x-[300px]">
       <Image
         src="/desktop/bottom-right.png"
         alt="Stars decoration"

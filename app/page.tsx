@@ -89,8 +89,8 @@ const content = {
   en: {
     heroMessage: {
       line1: "Animechain.ai is currently undergoing a rebranding.",
-      line2: "Our website is under renovation —",
-      line3: "please stay tuned for our new launch!"
+      line2: "Our website is under renovation — please stay tuned for our new launch!",
+      line3: ""
     },
     companyInfo: {
       title: "About Us",
