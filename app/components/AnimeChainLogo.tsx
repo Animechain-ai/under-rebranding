@@ -7,6 +7,7 @@ export default function AnimeChainLogo() {
       fill="none"
       xmlns="http://www.w3.org/2000/svg"
       className="w-full h-full"
+      style={{ maxWidth: '100%', height: 'auto' }}
     >
       <g>
         <path

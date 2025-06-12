@@ -4,26 +4,32 @@ import AnimeChainLogo from "./components/AnimeChainLogo";
 
 function BackgroundStars() {
   return (
-    <div className="absolute inset-0 overflow-hidden">
+    <div className="absolute inset-0 overflow-hidden pointer-events-none">
       <svg
         className="absolute inset-0 w-full h-full"
         viewBox="0 0 765 400"
         fill="none"
         xmlns="http://www.w3.org/2000/svg"
+        preserveAspectRatio="xMidYMid slice"
       >
-        <circle cx="24.5" cy="90.5" r="8.5" fill="white" />
-        <circle cx="4" cy="4" r="4" fill="white" />
-        <circle cx="690" cy="305" r="6" fill="white" />
-        <circle cx="698" cy="243" r="3" fill="white" opacity="0.8" />
-        <circle cx="151" cy="17" r="5" fill="white" opacity="0.8" />
-        <ellipse cx="603" cy="326" rx="9" ry="9" fill="white" />
+        {/* Top left small star */}
         <path
           d="M78 3C78 3 81.0243 22.8462 89.6139 31.1015C98.2035 39.3568 121 41.5 121 41.5C121 41.5 98.2035 43.6432 89.6139 51.8985C81.0243 60.1538 78 80 78 80C78 80 74.9757 60.1538 66.3861 51.8985C57.7965 43.6432 35 41.5 35 41.5C35 41.5 57.7965 39.3568 66.3861 31.1015C74.9757 22.8462 78 3 78 3Z"
           fill="white"
+          opacity="0.8"
         />
+        {/* Small circles - positioned to avoid text overlap */}
+        <circle cx="24.5" cy="90.5" r="6" fill="white" opacity="0.6" />
+        <circle cx="4" cy="4" r="3" fill="white" opacity="0.7" />
+        <circle cx="151" cy="17" r="4" fill="white" opacity="0.6" />
+        {/* Bottom right stars */}
+        <circle cx="690" cy="305" r="6" fill="white" opacity="0.8" />
+        <circle cx="698" cy="243" r="3" fill="white" opacity="0.6" />
+        <circle cx="603" cy="326" r="8" fill="white" opacity="0.7" />
         <path
           d="M635 311C635 311 632.749 296.051 626.357 289.833C619.965 283.614 603 282 603 282C603 282 619.965 280.386 626.357 274.167C632.749 267.949 635 253 635 253C635 253 637.251 267.949 643.643 274.167C650.035 280.386 667 282 667 282C667 282 650.035 283.614 643.643 289.833C637.251 296.051 635 311 635 311Z"
           fill="white"
+          opacity="0.9"
         />
       </svg>
     </div>
@@ -32,7 +38,7 @@ function BackgroundStars() {
 
 function LanguageToggle({ language, onLanguageChange }: { language: 'ja' | 'en', onLanguageChange: (lang: 'ja' | 'en') => void }) {
   return (
-    <div className="absolute top-10 right-10 flex items-center text-white text-sm">
+    <div className="absolute top-4 right-4 sm:top-6 sm:right-6 lg:top-10 lg:right-10 flex items-center text-white text-sm z-20">
       <button 
         onClick={() => onLanguageChange('en')}
         className={`h-6 w-8 flex items-center justify-center cursor-pointer ${
@@ -56,9 +62,9 @@ function LanguageToggle({ language, onLanguageChange }: { language: 'ja' | 'en',
 
 function CompanyInfoRow({ label, value }: { label: string; value: string | React.ReactNode }) {
   return (
-    <div className="flex justify-between items-center py-4 border-b border-gray-300 last:border-b-0">
-      <div className="text-gray-700 font-normal">{label}</div>
-      <div className="text-gray-900 font-bold text-right">{value}</div>
+    <div className="flex flex-col sm:flex-row sm:justify-between sm:items-center py-3 sm:py-4 border-b border-gray-300 last:border-b-0 gap-2 sm:gap-0">
+      <div className="text-gray-700 font-normal text-sm sm:text-base">{label}</div>
+      <div className="text-gray-900 font-bold text-right text-sm sm:text-base break-words">{value}</div>
     </div>
   );
 }
@@ -125,32 +131,32 @@ export default function Home() {
   return (
     <div className="min-h-screen bg-white">
       {/* Hero Section */}
-      <div className="relative bg-[#060609] h-[400px] overflow-hidden">
+      <div className="relative bg-[#060609] min-h-[400px] lg:h-[400px] overflow-hidden">
         <BackgroundStars />
         <LanguageToggle language={language} onLanguageChange={setLanguage} />
         
-        <div className="absolute left-1/2 top-1/2 transform -translate-x-1/2 -translate-y-1/2 text-center">
-          <div className="flex flex-col items-center gap-10">
+        <div className="absolute left-1/2 top-1/2 transform -translate-x-1/2 -translate-y-1/2 text-center w-full px-4">
+          <div className="flex flex-col items-center gap-6 lg:gap-10 max-w-4xl mx-auto">
             {/* Logo */}
-            <div className="w-[298px] h-[54px]">
+            <div className="w-[240px] h-[44px] sm:w-[298px] sm:h-[54px]">
               <AnimeChainLogo />
             </div>
             
             {/* Message */}
-            <div className="text-white text-xl font-bold leading-relaxed">
-              <p className="mb-2">{currentContent.heroMessage.line1}</p>
-              <p className={currentContent.heroMessage.line3 ? "mb-2" : ""}>{currentContent.heroMessage.line2}</p>
-              {currentContent.heroMessage.line3 && <p>{currentContent.heroMessage.line3}</p>}
+            <div className="text-white font-bold leading-relaxed px-2 z-10 relative">
+              <p className="text-base sm:text-lg lg:text-xl mb-2">{currentContent.heroMessage.line1}</p>
+              <p className={`text-base sm:text-lg lg:text-xl ${currentContent.heroMessage.line3 ? "mb-2" : ""}`}>{currentContent.heroMessage.line2}</p>
+              {currentContent.heroMessage.line3 && <p className="text-base sm:text-lg lg:text-xl">{currentContent.heroMessage.line3}</p>}
             </div>
           </div>
         </div>
       </div>
 
       {/* Company Info Section */}
-      <div className="bg-white py-10">
-        <div className="max-w-4xl mx-auto px-8">
-          <div className="mb-6">
-            <h2 className="text-[#060609] text-[32px] font-black mb-2">{currentContent.companyInfo.title}</h2>
+      <div className="bg-white py-8 sm:py-12 lg:py-16">
+        <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="mb-6 sm:mb-8">
+            <h2 className="text-[#060609] text-2xl sm:text-3xl lg:text-[32px] font-black mb-2">{currentContent.companyInfo.title}</h2>
             <div className="w-[72px] h-[7px] bg-[#F42112] rounded-sm relative">
               <svg
                 className="absolute inset-0 w-full h-full"
@@ -165,7 +171,7 @@ export default function Home() {
             </div>
           </div>
 
-          <div className="space-y-10">
+          <div className="space-y-6 sm:space-y-8 lg:space-y-10">
             {/* Main Company */}
             <div>
               <CompanyInfoRow label={currentContent.companyInfo.companyName} value={currentContent.companyInfo.companyNameValue} />
@@ -200,9 +206,9 @@ export default function Home() {
       </div>
 
       {/* Footer */}
-      <div className="bg-[#060609] py-10">
-        <div className="text-center">
-          <div className="text-white font-bold text-base">
+      <div className="bg-[#060609] py-6 sm:py-8 lg:py-10">
+        <div className="text-center px-4">
+          <div className="text-white font-bold text-sm sm:text-base">
             {currentContent.footer}
           </div>
         </div>
