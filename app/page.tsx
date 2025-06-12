@@ -67,7 +67,8 @@ const content = {
   ja: {
     heroMessage: {
       line1: "現在Animechain.aiはリブランディング中につき改装中です",
-      line2: "当社の新しいWebサイトにご期待ください！"
+      line2: "当社の新しいWebサイトにご期待ください！",
+      line3: ""
     },
     companyInfo: {
       title: "会社情報",
@@ -92,7 +93,8 @@ const content = {
   en: {
     heroMessage: {
       line1: "Animechain.ai is currently undergoing a rebranding.",
-      line2: "Our website is under renovation — please stay tuned for our new launch!"
+      line2: "Our website is under renovation —",
+      line3: "please stay tuned for our new launch!"
     },
     companyInfo: {
       title: "About Us",
@@ -137,7 +139,8 @@ export default function Home() {
             {/* Message */}
             <div className="text-white text-xl font-bold leading-relaxed">
               <p className="mb-2">{currentContent.heroMessage.line1}</p>
-              <p>{currentContent.heroMessage.line2}</p>
+              <p className={currentContent.heroMessage.line3 ? "mb-2" : ""}>{currentContent.heroMessage.line2}</p>
+              {currentContent.heroMessage.line3 && <p>{currentContent.heroMessage.line3}</p>}
             </div>
           </div>
         </div>
