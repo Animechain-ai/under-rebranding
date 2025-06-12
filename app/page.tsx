@@ -35,34 +35,20 @@ function LanguageToggle({ language, onLanguageChange }: { language: 'ja' | 'en',
     <div className="absolute top-10 right-10 flex items-center text-white text-sm">
       <button 
         onClick={() => onLanguageChange('en')}
-        className={`h-6 w-8 mr-1 ${language === 'en' ? 'opacity-100' : 'opacity-50'} hover:opacity-75 transition-opacity`}
+        className={`h-6 w-8 flex items-center justify-center cursor-pointer ${
+          language === 'en' ? 'opacity-100' : 'opacity-50'
+        } hover:opacity-100 hover:scale-110 transition-all duration-200 ease-in-out`}
       >
-        <svg width="22" height="14" viewBox="0 0 22 14" fill="none" className="w-full h-full">
-          <path
-            d="M11.7797 0C11.9117 0 12.0227 0.00599885 12.1127 0.0179987C12.2027 0.0299985 12.2837 0.0539985 12.3557 0.0899987C12.4277 0.119999 12.4967 0.164999 12.5627 0.224998C12.6287 0.284998 12.7037 0.365998 12.7877 0.467998L19.0157 8.343C18.9917 8.091 18.9737 7.848 18.9617 7.614C18.9497 7.374 18.9437 7.149 18.9437 6.939V0H21.6257V13.113H20.0417C19.8077 13.113 19.6097 13.077 19.4477 13.005C19.2857 12.933 19.1297 12.801 18.9797 12.609L12.7967 4.797C12.8147 5.025 12.8297 5.25 12.8417 5.472C12.8537 5.688 12.8597 5.892 12.8597 6.084V13.113H10.1777V0H11.7797Z"
-            fill="white"
-          />
-          <path
-            d="M8.442 0V2.34H3.06V5.4H7.182V7.65H3.06V10.773H8.442V13.113H0V0H8.442Z"
-            fill="white"
-          />
-        </svg>
+        <span className="text-white text-sm font-bold">EN</span>
       </button>
-      <span className="mx-1 text-white">/</span>
+      <span className="mx-1 text-white text-sm">/</span>
       <button 
         onClick={() => onLanguageChange('ja')}
-        className={`h-6 w-8 ml-1 ${language === 'ja' ? 'opacity-100' : 'opacity-50'} hover:opacity-75 transition-opacity`}
+        className={`h-6 w-8 flex items-center justify-center cursor-pointer ${
+          language === 'ja' ? 'opacity-100' : 'opacity-50'
+        } hover:opacity-100 hover:scale-110 transition-all duration-200 ease-in-out`}
       >
-        <svg width="10" height="14" viewBox="0 0 10 14" fill="none" className="w-full h-full">
-          <path
-            d="M6.516 8.361C6.516 9.093 6.423 9.759 6.237 10.359C6.057 10.959 5.781 11.475 5.409 11.907C5.043 12.333 4.581 12.666 4.023 12.906C3.465 13.14 2.808 13.257 2.052 13.257C1.71 13.257 1.371 13.239 1.035 13.203C0.705 13.167 0.36 13.107 0 13.023L0.162 11.25C0.174 11.094 0.234 10.968 0.342 10.872C0.456 10.776 0.612 10.728 0.81 10.728C0.912 10.728 1.038 10.746 1.188 10.782C1.338 10.812 1.518 10.827 1.728 10.827C2.022 10.827 2.277 10.788 2.493 10.71C2.715 10.626 2.898 10.491 3.042 10.305C3.186 10.113 3.294 9.864 3.366 9.558C3.438 9.252 3.474 8.874 3.474 8.424V0H6.516V8.361Z"
-            fill="white"
-          />
-          <path
-            d="M3.042 8.73V13.113H0V0H4.626C5.55 0 6.342 0.111 7.002 0.332999C7.668 0.548999 8.214 0.848999 8.64 1.233C9.072 1.617 9.39 2.07 9.594 2.592C9.798 3.114 9.9 3.678 9.9 4.284C9.9 4.938 9.795 5.538 9.585 6.084C9.375 6.63 9.054 7.098 8.622 7.488C8.19 7.878 7.641 8.184 6.975 8.406C6.315 8.622 5.532 8.73 4.626 8.73H3.042ZM3.042 6.435H4.626C5.418 6.435 5.988 6.246 6.336 5.868C6.684 5.49 6.858 4.962 6.858 4.284C6.858 3.984 6.813 3.711 6.723 3.465C6.633 3.219 6.495 3.009 6.309 2.835C6.129 2.655 5.898 2.517 5.616 2.421C5.34 2.325 5.01 2.277 4.626 2.277H3.042V6.435Z"
-            fill="white"
-          />
-        </svg>
+        <span className="text-white text-sm font-bold">JP</span>
       </button>
     </div>
   );
