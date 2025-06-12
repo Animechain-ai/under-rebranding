@@ -3,7 +3,7 @@ import { useEffect, useState } from 'react';
 
 // パスを動的に取得するカスタムフック
 function useAssetPath() {
-  const [basePath, setBasePath] = useState('');
+  const [basePath, setBasePath] = useState<string | null>(null);
   
   useEffect(() => {
     if (typeof window !== 'undefined') {
@@ -19,6 +19,8 @@ function useAssetPath() {
 // 左上 - デスクトップ用
 export function TopLeftStarsDesktop() {
   const basePath = useAssetPath();
+  
+  if (basePath === null) return null;
   
   return (
     <div className="absolute left-1/2 top-6 -translate-x-[400px]">
@@ -37,6 +39,8 @@ export function TopLeftStarsDesktop() {
 export function TopLeftStarsMobile() {
   const basePath = useAssetPath();
   
+  if (basePath === null) return null;
+  
   return (
     <div className="absolute left-4 top-4">
       <Image
@@ -54,6 +58,8 @@ export function TopLeftStarsMobile() {
 export function BottomRightStarsDesktop() {
   const basePath = useAssetPath();
   
+  if (basePath === null) return null;
+  
   return (
     <div className="absolute left-1/2 bottom-6 translate-x-[300px]">
       <Image
@@ -70,6 +76,8 @@ export function BottomRightStarsDesktop() {
 // 右下 - モバイル用
 export function BottomRightStarsMobile() {
   const basePath = useAssetPath();
+  
+  if (basePath === null) return null;
   
   return (
     <div className="absolute right-4 bottom-4">
