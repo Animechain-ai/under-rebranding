@@ -1,0 +1,3 @@
+# public/_redirects
+
+/* https://corp.aniark.co/:splat 301!

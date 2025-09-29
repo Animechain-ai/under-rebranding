@@ -3,9 +3,3 @@
   command = "npm run build"
   functions = "netlify/functions"
   publish = "out"
-
-[[redirects]]
-  from = "https://animechain.ai/*"
-  to = "https://corp.aniark.co/:splat"
-  status = 301
-  force = true
